@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookController;
+use GuzzleHttp\Promise\Create;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('me',[AuthController::class, 'me']);
+
+Route::resource('book', BookController::class)->except(
+    ['create', 'edit']
+);
+
+
+//Route::get('book', [BookController::class, 'index']);
+//Route::get('book/{id}', [BookController::class, 'index']);
+//Route::post('book', [BookController::class, 'index']);
+//Route::put('book/{id}', [BookController::class, 'index']);
+//Route::delete('book/{id}', [BookController::class, 'index']);
