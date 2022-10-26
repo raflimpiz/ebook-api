@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Author extends Model
 {
-    use HasFactory;
+    protected $fileable = ['name', 'date_of_birh', 'place_of birth', 'gender', 'email', 'hp'];
 }
